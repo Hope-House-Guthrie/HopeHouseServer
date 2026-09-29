@@ -24,8 +24,13 @@
       shell = pkgs.callPackage ./shell/package.nix {
         inherit inputs;
       };
+
+      adminPublicKeys = (import ./secrets.nix).adminPublicKeys;
     in
     {
       devShells.${system}.default = shell;
+      nixosConfigurations.hope-house-server = (import ./nixos/system.nix) {
+        inherit adminPublicKeys inputs;
+      };
     };
 }

@@ -7,7 +7,7 @@
 let
   system = stdenv.hostPlatform.system;
   agenix = inputs.agenix.packages.${system}.agenix;
-in 
+in
 pkgs.mkShell {
   buildInputs = with pkgs; [
     age
