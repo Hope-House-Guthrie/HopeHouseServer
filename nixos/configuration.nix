@@ -1,6 +1,9 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./modules/nix.nix
+    ./modules/ssh.nix
+    ./modules/users.nix
   ];
 
   i18n.defaultLocale = "en_US.UTF-8";
