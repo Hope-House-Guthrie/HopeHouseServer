@@ -1,5 +1,4 @@
 {
-  lib,
   adminPublicKeys,
   config,
   self,
