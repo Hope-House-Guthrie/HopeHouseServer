@@ -12,6 +12,7 @@
 
   outputs =
     {
+      self,
       ...
     }@inputs:
     let
@@ -30,7 +31,7 @@
     {
       devShells.${system}.default = shell;
       nixosConfigurations.hope-house-server = (import ./nixos/system.nix) {
-        inherit adminPublicKeys inputs;
+        inherit adminPublicKeys inputs self;
       };
     };
 }

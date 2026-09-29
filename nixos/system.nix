@@ -1,12 +1,14 @@
 {
   adminPublicKeys,
   inputs,
+  self,
 }:
 inputs.nixpkgs.lib.nixosSystem {
   specialArgs = {
     inherit
       adminPublicKeys
       inputs
+      self
       ;
   };
 
