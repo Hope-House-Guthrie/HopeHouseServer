@@ -1,10 +1,12 @@
+{ constants, ... }:
 {
-  networking.firewall.allowedTCPPorts = [
+  networking.firewall.interfaces.${constants.network.lan.interface}.allowedTCPPorts = [
     22
   ];
 
   services.openssh = {
     enable = true;
+    openFirewall = false;
 
     hostKeys = [
       {
@@ -18,5 +20,15 @@
       KbdInteractiveAuthentication = false;
       PermitRootLogin = "prohibit-password";
     };
+  };
+
+  virtualisation.vmVariant = {
+    virtualisation.forwardPorts = [
+      {
+        from = "host";
+        host.port = 2222;
+        guest.port = 22;
+      }
+    ];
   };
 }

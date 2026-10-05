@@ -4,6 +4,11 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-26.05";
 
+    h3 = {
+      url = "github:Hope-House-Guthrie/HopeHouseHub/develop";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     agenix = {
       url = "github:ryantm/agenix/main";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -22,16 +27,26 @@
         inherit system;
       };
 
+      constants = import ./constants.nix;
+
       shell = pkgs.callPackage ./shell/package.nix {
-        inherit inputs;
+        inherit constants inputs;
       };
 
       adminPublicKeys = (import ./secrets.nix).adminPublicKeys;
+
+      secretsPath = ./secrets;
     in
     {
       devShells.${system}.default = shell;
-      nixosConfigurations.hope-house-server = (import ./nixos/system.nix) {
-        inherit adminPublicKeys inputs self;
+
+      nixosConfigurations.h2-server = (import ./nixos/system.nix) {
+        inherit
+          adminPublicKeys
+          constants
+          inputs
+          secretsPath
+          ;
       };
     };
 }

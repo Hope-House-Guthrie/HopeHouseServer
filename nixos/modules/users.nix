@@ -1,19 +1,20 @@
 {
   adminPublicKeys,
   config,
-  self,
+  lib,
+  secretsPath,
   ...
 }:
 {
-  age.secrets.root_passwd = {
-    file = "${self}/secrets/root_passwd.age";
+  age.secrets.root-passwd = {
+    file = "${secretsPath}/root-passwd.age";
     mode = "0400";
   };
 
   users = {
     mutableUsers = false;
 
-    users.root.hashedPasswordFile = config.age.secrets.root_passwd.path;
+    users.root.hashedPasswordFile = config.age.secrets.root-passwd.path;
 
     users.admin = {
       isNormalUser = true;
@@ -34,4 +35,14 @@
     "root"
     "admin"
   ];
+
+  virtualisation.vmVariant = {
+    users = {
+      users.root = {
+        password = lib.mkForce "root";
+        hashedPassword = lib.mkForce null;
+        hashedPasswordFile = lib.mkForce null;
+      };
+    };
+  };
 }

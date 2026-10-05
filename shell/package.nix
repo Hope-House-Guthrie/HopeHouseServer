@@ -1,4 +1,5 @@
 {
+  constants,
   inputs,
   pkgs,
   stdenv,
@@ -7,13 +8,20 @@
 let
   system = stdenv.hostPlatform.system;
   agenix = inputs.agenix.packages.${system}.agenix;
+  nixosConfiguration = "h2-server";
 
   update-host = pkgs.writeShellScriptBin "update-host" ''
     set -e
     ${pkgs.nixos-rebuild}/bin/nixos-rebuild switch \
-      --flake .#hope-house-server \
+      --flake .#${nixosConfiguration} \
       --sudo \
-      --target-host admin@$192.168.0.128
+      --target-host admin@${constants.network.lan.address}
+  '';
+
+  run-vm = pkgs.writeShellScriptBin "run-vm" ''
+    set -e
+    nix build .#nixosConfigurations.${nixosConfiguration}.config.system.build.vm \
+      && result/bin/run-${nixosConfiguration}-vm
   '';
 in
 pkgs.mkShell {
@@ -22,9 +30,10 @@ pkgs.mkShell {
     agenix
     nixd
     nixfmt
+    openssl
+    run-vm
     starship
     update-host
-    wireguard-tools
   ];
 
   shellHook = ''

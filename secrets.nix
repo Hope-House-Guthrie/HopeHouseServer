@@ -4,11 +4,13 @@ let
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIo0rqolIwrG9+2xM6nQSDmPkEAprLEstESby+KtwoDa super@super-systems"
   ];
 
-  hostPublicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEoLAi0CkNQx3WY9fgA0oaG+8RMVym92ymolQpO5FMNr root@hope-house-server";
+  hostPublicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEoLAi0CkNQx3WY9fgA0oaG+8RMVym92ymolQpO5FMNr root@h2-server";
 in
 {
   # note: comment this before running `agenix -r`
   inherit adminPublicKeys;
 
-  "secrets/root_passwd.age".publicKeys = adminPublicKeys ++ [ hostPublicKey ];
+  "secrets/root-passwd.age".publicKeys = adminPublicKeys ++ [ hostPublicKey ];
+  "secrets/wg-key.age".publicKeys = adminPublicKeys ++ [ hostPublicKey ];
+  "secrets/h3/dev-jwt-secret.age".publicKeys = adminPublicKeys ++ [ hostPublicKey ];
 }
