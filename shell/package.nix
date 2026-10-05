@@ -17,12 +17,6 @@ let
       --sudo \
       --target-host admin@${constants.network.lan.address}
   '';
-
-  run-vm = pkgs.writeShellScriptBin "run-vm" ''
-    set -e
-    nix build .#nixosConfigurations.${nixosConfiguration}.config.system.build.vm \
-      && result/bin/run-${nixosConfiguration}-vm
-  '';
 in
 pkgs.mkShell {
   buildInputs = with pkgs; [
@@ -31,7 +25,6 @@ pkgs.mkShell {
     nixd
     nixfmt
     openssl
-    run-vm
     starship
     update-host
   ];
