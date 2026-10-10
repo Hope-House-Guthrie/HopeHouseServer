@@ -1,13 +1,15 @@
 {
   network = {
     wan = {
-      interface = "eno1";
+      mac = "6c:0b:84:67:b9:27";
+      interface = "wan0";
       address = "57.138.30.25";
       gateway = "57.138.30.1";
       cidr = "24";
     };
     lan = {
-      interface = "eth1";
+      mac = "6c:0b:84:67:b9:26";
+      interface = "lan0";
       address = "192.168.0.128";
       gateway = "192.168.0.1";
       cidr = "24";

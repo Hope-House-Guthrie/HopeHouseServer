@@ -6,6 +6,17 @@
     nameservers = constants.network.dns;
   };
 
+  systemd.network.links = {
+    "10-wan" = {
+      matchConfig.MACAddress = constants.network.wan.mac;
+      linkConfig.Name = constants.network.wan.interface;
+    };
+    "20-lan" = {
+      matchConfig.MACAddress = constants.network.lan.mac;
+      linkConfig.Name = constants.network.lan.interface;
+    };
+  };
+
   systemd.network.networks = {
     "10-wan" = {
       matchConfig.Name = constants.network.wan.interface;
@@ -58,7 +69,7 @@
   boot.kernel.sysctl = {
     "net.ipv4.conf.all.rp_filter" = 2;
     "net.ipv4.conf.default.rp_filter" = 2;
-    "net.ipv4.conf.eno1.rp_filter" = 2;
-    "net.ipv4.conf.eth1.rp_filter" = 2;
+    "net.ipv4.conf.${constants.network.lan.interface}.rp_filter" = 2;
+    "net.ipv4.conf.${constants.network.wan.interface}.rp_filter" = 2;
   };
 }
