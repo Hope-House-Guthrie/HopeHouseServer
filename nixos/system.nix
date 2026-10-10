@@ -16,7 +16,7 @@ inputs.nixpkgs.lib.nixosSystem {
 
   modules = [
     inputs.agenix.nixosModules.default
-    inputs.h3.nixosModules.h3-backend
+    inputs.h3.nixosModules.h3-server
     ./configuration.nix
     {
       nixpkgs.overlays = [ inputs.h3.overlays.default ];

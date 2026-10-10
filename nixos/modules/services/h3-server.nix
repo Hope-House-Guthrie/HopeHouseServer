@@ -11,6 +11,13 @@ in
     group = dev-group;
   };
 
+  age.secrets.h3_dev-azure-service-bus = {
+    file = "${secretsPath}/h3/dev-azure-service-bus.age";
+    mode = "400";
+    owner = dev-user;
+    group = dev-group;
+  };
+
   services.postgresql = {
     ensureDatabases = [ dev-user ];
     ensureUsers = [
@@ -21,10 +28,11 @@ in
     ];
   };
 
-  services.h3-backend.dev = {
+  services.h3-server.dev = {
     enable = true;
     domain = "api.hub.nhdhopehouseguthrie.org";
     jwtSecretFile = config.age.secrets.h3_dev-jwt-secret.path;
+    azureServiceBusFile = config.age.secrets.h3_dev-azure-service-bus.path;
     user = dev-user;
     group = dev-group;
     database = {

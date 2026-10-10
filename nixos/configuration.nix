@@ -6,7 +6,7 @@
     ./modules/ssh.nix
     ./modules/users.nix
     ./modules/services/caddy.nix
-    ./modules/services/h3-backend.nix
+    ./modules/services/h3-server.nix
     ./modules/services/postgresql.nix
   ];
 

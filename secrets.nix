@@ -5,12 +5,15 @@ let
   ];
 
   hostPublicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEoLAi0CkNQx3WY9fgA0oaG+8RMVym92ymolQpO5FMNr root@h2-server";
+
+  publicKeys = adminPublicKeys ++ [ hostPublicKey ];
 in
 {
   # note: comment this before running `agenix -r`
   inherit adminPublicKeys;
 
-  "secrets/root-passwd.age".publicKeys = adminPublicKeys ++ [ hostPublicKey ];
-  "secrets/wg-key.age".publicKeys = adminPublicKeys ++ [ hostPublicKey ];
-  "secrets/h3/dev-jwt-secret.age".publicKeys = adminPublicKeys ++ [ hostPublicKey ];
+  "secrets/root-passwd.age" = { inherit publicKeys; };
+  "secrets/wg-key.age" = { inherit publicKeys; };
+  "secrets/h3/dev-jwt-secret.age" = { inherit publicKeys; };
+  "secrets/h3/dev-azure-service-bus.age" = { inherit publicKeys; };
 }
