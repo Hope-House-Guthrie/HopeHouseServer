@@ -77,11 +77,11 @@
         "nuget-packageslock2nix": "nuget-packageslock2nix"
       },
       "locked": {
-        "lastModified": 1791597286,
-        "narHash": "sha256-lA808nkBua2c1H6syilE0n/BY+4VWOXk3kzYucudfC0=",
+        "lastModified": 1791664278,
+        "narHash": "sha256-a1Y2GKsziDPkAn9QRvZ4TjpWbQCHj5x3ZbOV05TzDIk=",
         "owner": "Hope-House-Guthrie",
         "repo": "HopeHouseHub",
-        "rev": "efbdc12510be9af3f01c81f07cce3a76e44b1e61",
+        "rev": "33d0e916825910ef9184157da2a5f33c54496571",
         "type": "github"
       },
       "original": {

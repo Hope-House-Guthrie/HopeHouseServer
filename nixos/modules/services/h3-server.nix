@@ -30,7 +30,8 @@ in
 
   services.h3-server.dev = {
     enable = true;
-    domain = "api.hub.nhdhopehouseguthrie.org";
+    backendAuthority = "api.hub.nhdhopehouseguthrie.org";
+    frontendOrigin = "https://hub.nhdhopehouseguthrie.org";
     jwtSecretFile = config.age.secrets.h3_dev-jwt-secret.path;
     azureServiceBusFile = config.age.secrets.h3_dev-azure-service-bus.path;
     user = dev-user;
