@@ -5,28 +5,28 @@ let
 in
 {
   age.secrets.h3_develop-jwt-secret = {
-    file = "${secretsPath}/h3/develop-jwt-secret.age";
+    file = "${secretsPath}/h3/develop/jwt-secret.age";
     mode = "400";
     owner = config.services.h3-server.develop.user;
     group = config.services.h3-server.develop.group;
   };
 
   age.secrets.h3_develop-azure-service-bus = {
-    file = "${secretsPath}/h3/develop-azure-service-bus.age";
+    file = "${secretsPath}/h3/develop/azure-service-bus.age";
     mode = "400";
     owner = config.services.h3-server.develop.user;
     group = config.services.h3-server.develop.group;
   };
 
   age.secrets.h3_main-jwt-secret = {
-    file = "${secretsPath}/h3/main-jwt-secret.age";
+    file = "${secretsPath}/h3/main/jwt-secret.age";
     mode = "400";
     owner = config.services.h3-server.main.user;
     group = config.services.h3-server.main.group;
   };
 
   age.secrets.h3_main-azure-service-bus = {
-    file = "${secretsPath}/h3/main-azure-service-bus.age";
+    file = "${secretsPath}/h3/main/azure-service-bus.age";
     mode = "400";
     owner = config.services.h3-server.main.user;
     group = config.services.h3-server.main.group;
