@@ -4,8 +4,13 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-26.05";
 
-    h3 = {
+    h3-develop = {
       url = "github:Hope-House-Guthrie/HopeHouseHub/develop";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    h3-main = {
+      url = "github:Hope-House-Guthrie/HopeHouseHub/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -17,7 +22,6 @@
 
   outputs =
     {
-      self,
       ...
     }@inputs:
     let

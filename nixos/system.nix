@@ -16,10 +16,8 @@ inputs.nixpkgs.lib.nixosSystem {
 
   modules = [
     inputs.agenix.nixosModules.default
-    inputs.h3.nixosModules.h3-server
+    (inputs.h3-develop.nixosModules.h3-server { hostingEnvironment = "develop"; })
+    (inputs.h3-main.nixosModules.h3-server { hostingEnvironment = "main"; })
     ./configuration.nix
-    {
-      nixpkgs.overlays = [ inputs.h3.overlays.default ];
-    }
   ];
 }

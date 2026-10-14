@@ -14,6 +14,8 @@ in
 
   "secrets/root-passwd.age" = { inherit publicKeys; };
   "secrets/wg-key.age" = { inherit publicKeys; };
-  "secrets/h3/dev-jwt-secret.age" = { inherit publicKeys; };
-  "secrets/h3/dev-azure-service-bus.age" = { inherit publicKeys; };
+  "secrets/h3/develop/jwt-secret.age" = { inherit publicKeys; };
+  "secrets/h3/develop/azure-service-bus.age" = { inherit publicKeys; };
+  "secrets/h3/main/jwt-secret.age" = { inherit publicKeys; };
+  "secrets/h3/main/azure-service-bus.age" = { inherit publicKeys; };
 }

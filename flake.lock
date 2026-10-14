@@ -25,7 +25,7 @@
       "inputs": {
         "flake-parts": "flake-parts",
         "nixpkgs": [
-          "h3",
+          "h3-develop",
           "nixpkgs"
         ],
         "systems": "systems",
@@ -46,10 +46,35 @@
         "type": "github"
       }
     },
+    "bun2nix_2": {
+      "inputs": {
+        "flake-parts": "flake-parts_2",
+        "nixpkgs": [
+          "h3-main",
+          "nixpkgs"
+        ],
+        "systems": "systems_2",
+        "treefmt-nix": "treefmt-nix_2"
+      },
+      "locked": {
+        "lastModified": 1784665499,
+        "narHash": "sha256-9BMxlTxCCDAeoNLtb1a/st7udtTIJep+wpUzquA29VU=",
+        "owner": "nix-community",
+        "repo": "bun2nix",
+        "rev": "0f2a1f0b6f42cebe3b149bf62d38754c5e0e9729",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "ref": "2.1.2",
+        "repo": "bun2nix",
+        "type": "github"
+      }
+    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": [
-          "h3",
+          "h3-develop",
           "bun2nix",
           "nixpkgs"
         ]
@@ -68,7 +93,29 @@
         "type": "github"
       }
     },
-    "h3": {
+    "flake-parts_2": {
+      "inputs": {
+        "nixpkgs-lib": [
+          "h3-main",
+          "bun2nix",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1782949081,
+        "narHash": "sha256-vp6Y/Grm98ESt6ceOkWiHWyZRDV3J1RID4w+6NWK9yA=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "17c9d6cdfc60c64f4ee8d306f9bc0b4ccb51481e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "type": "github"
+      }
+    },
+    "h3-develop": {
       "inputs": {
         "bun2nix": "bun2nix",
         "nixpkgs": [
@@ -77,16 +124,39 @@
         "nuget-packageslock2nix": "nuget-packageslock2nix"
       },
       "locked": {
-        "lastModified": 1791836820,
-        "narHash": "sha256-tG5WY5T/HkYm+mEXkUIA93Nh98rLAp2PfoBcc1UlU+c=",
+        "lastModified": 1792005044,
+        "narHash": "sha256-503DzQm7K3hEpRNw6RWJEpG7vUPov+YGiwQr9ZQbIQE=",
         "owner": "Hope-House-Guthrie",
         "repo": "HopeHouseHub",
-        "rev": "0b74e61b54d38ce07b1d0d9bfa27dd1211e6723e",
+        "rev": "d2132d07ddcc6e135ce3ce2738519177a44c96e6",
         "type": "github"
       },
       "original": {
         "owner": "Hope-House-Guthrie",
         "ref": "develop",
+        "repo": "HopeHouseHub",
+        "type": "github"
+      }
+    },
+    "h3-main": {
+      "inputs": {
+        "bun2nix": "bun2nix_2",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "nuget-packageslock2nix": "nuget-packageslock2nix_2"
+      },
+      "locked": {
+        "lastModified": 1792005044,
+        "narHash": "sha256-503DzQm7K3hEpRNw6RWJEpG7vUPov+YGiwQr9ZQbIQE=",
+        "owner": "Hope-House-Guthrie",
+        "repo": "HopeHouseHub",
+        "rev": "d2132d07ddcc6e135ce3ce2738519177a44c96e6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Hope-House-Guthrie",
+        "ref": "main",
         "repo": "HopeHouseHub",
         "type": "github"
       }
@@ -110,7 +180,29 @@
     "nuget-packageslock2nix": {
       "inputs": {
         "nixpkgs": [
-          "h3",
+          "h3-develop",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1791007343,
+        "narHash": "sha256-I/GJAXDG9tknl/s7ALZOdkNS7d/lbV2tJQlQiHWjNXM=",
+        "owner": "mdarocha",
+        "repo": "nuget-packageslock2nix",
+        "rev": "44a22a2eb700af89a7b8ad025d6245875f90d1c6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mdarocha",
+        "ref": "main",
+        "repo": "nuget-packageslock2nix",
+        "type": "github"
+      }
+    },
+    "nuget-packageslock2nix_2": {
+      "inputs": {
+        "nixpkgs": [
+          "h3-main",
           "nixpkgs"
         ]
       },
@@ -132,7 +224,8 @@
     "root": {
       "inputs": {
         "agenix": "agenix",
-        "h3": "h3",
+        "h3-develop": "h3-develop",
+        "h3-main": "h3-main",
         "nixpkgs": "nixpkgs"
       }
     },
@@ -151,10 +244,47 @@
         "type": "github"
       }
     },
+    "systems_2": {
+      "locked": {
+        "lastModified": 1776166891,
+        "narHash": "sha256-bI8yrEGjrohR5hkQox7UrxDH7XqrYMwI8SL/LrJ1+S8=",
+        "owner": "nix-systems",
+        "repo": "triplet",
+        "rev": "6de7bc09397911ce03636afbcf6118745ab2cda0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "triplet",
+        "type": "github"
+      }
+    },
     "treefmt-nix": {
       "inputs": {
         "nixpkgs": [
-          "h3",
+          "h3-develop",
+          "bun2nix",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1784369104,
+        "narHash": "sha256-47cxbcZODibHv3rELFQ9vZly0vUNkND/atn/U7HLeb0=",
+        "owner": "numtide",
+        "repo": "treefmt-nix",
+        "rev": "df3c0640565d04a0261253cdd89fce78ec50168a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "treefmt-nix_2": {
+      "inputs": {
+        "nixpkgs": [
+          "h3-main",
           "bun2nix",
           "nixpkgs"
         ]
