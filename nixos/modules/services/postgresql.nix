@@ -7,5 +7,11 @@
       # type  database        user            address                 auth-method
       local   all             all                                     trust
     '';
+    ensureUsers = [
+      {
+        name = "admin";
+        ensureClauses.superuser = true;
+      }
+    ];
   };
 }
