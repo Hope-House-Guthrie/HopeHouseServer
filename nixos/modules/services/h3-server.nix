@@ -1,7 +1,7 @@
 { config, secretsPath, ... }:
 let
-  develop-db-user = "h3-backend-dev";
-  main-db-user = "h3-backend-main";
+  develop-db-user = "h3-develop";
+  main-db-user = "h3-main";
 in
 {
   age.secrets.h3_develop-jwt-secret = {
